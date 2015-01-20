@@ -10,7 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from django.conf.global_settings import STATICFILES_DIRS
+from django.conf.global_settings import STATICFILES_DIRS, MEDIA_URL, MEDIA_ROOT
+from test.test_decimal import directory
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -90,3 +91,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
         STATIC_PATH,
     )
+
+
+# Media Server Settings
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #Absolute path to media directory

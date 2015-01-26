@@ -11,7 +11,13 @@ def index(request):
     # Retrieve the top 5 only - or all if less than 5.
     # Place the list in our context_dict dictionary which will be passed to the template engine.
     category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'categories' : category_list}
+    
+    
+    # Query the database for a list of the top 5 viewed pages
+    page_list = Page.objects.order_by('-views')[:5]
+    
+    context_dict = {'categories' : category_list,
+                    'pages' : page_list}
     
     #Render the response and send it back
     return render(request, 'rango/index.html', context_dict)
@@ -49,12 +55,3 @@ def category(request, category_name_slug):
 
     # Go render the response and return it to the client.
     return render(request, 'rango/category.html', context_dict)
-
-# TODO: Slugify page names to allow html to display pages based on names
-#def page(request, page_name_slug):
-#   
-#    context_dict = {}
-#    
-#    try:
-#        page = Page.objects.get(slug=page_name_slug)
-        

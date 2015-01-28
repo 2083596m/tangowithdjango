@@ -24,7 +24,7 @@ def index(request):
     
 
 def about(request): 
-    context_dict = {"italicmessage": "We're not sure what Rango is about yet.."}
+    context_dict = {"italicmessage": "This is me, Ross Middleton. Metric Number: 2083596m"}
     return render(request, 'rango/about.html', context_dict)
 
 def category(request, category_name_slug):

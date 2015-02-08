@@ -96,3 +96,6 @@ STATICFILES_DIRS = (
 # Media Server Settings
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #Absolute path to media directory
+
+#User Admin settings
+LOGIN_URL = '/rango/login/'

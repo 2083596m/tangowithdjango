@@ -111,6 +111,7 @@ def add_category(request):
 
 @login_required
 def add_page(request, category_name_slug):
+
     try:
         cat = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
@@ -131,7 +132,7 @@ def add_page(request, category_name_slug):
     else:
         form = PageForm()
 
-    context_dict = {'form':form, 'category_name_slug': category_name_slug,}
+    context_dict = {'form':form, 'category': cat}
 
     return render(request, 'rango/add_page.html', context_dict)
 

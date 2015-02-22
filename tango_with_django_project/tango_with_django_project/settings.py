@@ -10,8 +10,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from django.conf.global_settings import STATICFILES_DIRS, MEDIA_URL, MEDIA_ROOT
+from django.conf.global_settings import STATICFILES_DIRS, MEDIA_URL, MEDIA_ROOT,\
+    SESSION_EXPIRE_AT_BROWSER_CLOSE, LOGIN_REDIRECT_URL
 from test.test_decimal import directory
+from test_app.settings import REGISTRATION_AUTO_LOGIN
+from __builtin__ import True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -30,6 +33,7 @@ TEMPLATE_DIRS = [TEMPLATE_PATH,]
 
 ALLOWED_HOSTS = []
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Application definition
 
@@ -41,6 +45,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,4 +105,11 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #Absolute path to media directory
 
 #User Admin settings
-LOGIN_URL = '/rango/login/'
+LOGIN_URL = '/accounts/login/'
+
+#Registration settings
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/rango/'
+LOGIN_URL = '/accounts/login'

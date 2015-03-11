@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 from django.conf.global_settings import STATICFILES_DIRS, MEDIA_URL, MEDIA_ROOT,\
     SESSION_EXPIRE_AT_BROWSER_CLOSE, LOGIN_REDIRECT_URL
-from test.test_decimal import directory
 from test_app.settings import REGISTRATION_AUTO_LOGIN
 from __builtin__ import True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
